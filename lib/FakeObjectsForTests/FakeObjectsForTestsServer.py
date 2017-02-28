@@ -20,7 +20,7 @@ from FakeObjectsForTests.authclient import KBaseAuth as _KBaseAuth
 
 DEPLOY = 'KB_DEPLOYMENT_CONFIG'
 SERVICE = 'KB_SERVICE_NAME'
-AUTH = 'auth-server-url'
+AUTH = 'auth-service-url'
 
 # Note that the error fields do not match the 2.0 JSONRPC spec
 
@@ -109,7 +109,11 @@ class JSONRPCServiceCustom(JSONRPCService):
             # Exception was raised inside the method.
             newerr = JSONServerError()
             newerr.trace = traceback.format_exc()
-            newerr.data = e.message
+            if isinstance(e.message, basestring):
+                newerr.data = e.message
+            else:
+                # Some exceptions embed other exceptions as the message
+                newerr.data = repr(e.message)
             raise newerr
         return result
 
@@ -332,15 +336,15 @@ class Application(object):
         self.rpc_service.add(impl_FakeObjectsForTests.create_any_objects,
                              name='FakeObjectsForTests.create_any_objects',
                              types=[dict])
-        self.method_authentication['FakeObjectsForTests.create_any_objects'] = 'required' # noqa
+        self.method_authentication['FakeObjectsForTests.create_any_objects'] = 'required'  # noqa
         self.rpc_service.add(impl_FakeObjectsForTests.create_fake_genomes,
                              name='FakeObjectsForTests.create_fake_genomes',
                              types=[dict])
-        self.method_authentication['FakeObjectsForTests.create_fake_genomes'] = 'required' # noqa
+        self.method_authentication['FakeObjectsForTests.create_fake_genomes'] = 'required'  # noqa
         self.rpc_service.add(impl_FakeObjectsForTests.create_fake_reads,
                              name='FakeObjectsForTests.create_fake_reads',
                              types=[dict])
-        self.method_authentication['FakeObjectsForTests.create_fake_reads'] = 'required' # noqa
+        self.method_authentication['FakeObjectsForTests.create_fake_reads'] = 'required'  # noqa
         self.rpc_service.add(impl_FakeObjectsForTests.status,
                              name='FakeObjectsForTests.status',
                              types=[dict])

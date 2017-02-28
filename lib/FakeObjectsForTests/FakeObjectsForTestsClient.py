@@ -94,10 +94,11 @@ class FakeObjectsForTests(object):
         """
         :param params: instance of type "CreateFakeGenomesParams"
            (ws_id/ws_name - two alternative ways to set target workspace,
-           obj_names - list of names for target workspace objects, metadata -
-           optional metadata.) -> structure: parameter "ws_id" of Long,
-           parameter "ws_name" of String, parameter "obj_names" of list of
-           String, parameter "metadata" of mapping from String to String
+           obj_names - list of names for target workspace objects (of type
+           'KBaseGenomes.Genome'), metadata - optional metadata.) ->
+           structure: parameter "ws_id" of Long, parameter "ws_name" of
+           String, parameter "obj_names" of list of String, parameter
+           "metadata" of mapping from String to String
         :returns: instance of list of type "object_info" (Information about
            an object, including user provided metadata. obj_id objid - the
            numerical id of the object. obj_name name - the name of the
@@ -151,10 +152,11 @@ class FakeObjectsForTests(object):
         """
         :param params: instance of type "CreateFakeReadsParams"
            (ws_id/ws_name - two alternative ways to set target workspace,
-           obj_names - list of names for target workspace objects, metadata -
-           optional metadata.) -> structure: parameter "ws_id" of Long,
-           parameter "ws_name" of String, parameter "obj_names" of list of
-           String, parameter "metadata" of mapping from String to String
+           obj_names - list of names for target workspace objects (of type
+           'KBaseFile.SingleEndLibrary'), metadata - optional metadata.) ->
+           structure: parameter "ws_id" of Long, parameter "ws_name" of
+           String, parameter "obj_names" of list of String, parameter
+           "metadata" of mapping from String to String
         :returns: instance of list of type "object_info" (Information about
            an object, including user provided metadata. obj_id objid - the
            numerical id of the object. obj_name name - the name of the

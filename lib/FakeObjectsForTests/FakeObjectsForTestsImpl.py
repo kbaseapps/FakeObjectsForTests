@@ -22,9 +22,9 @@ class FakeObjectsForTests:
     # state. A method could easily clobber the state set by another while
     # the latter method is running.
     ######################################### noqa
-    VERSION = "0.0.1"
-    GIT_URL = ""
-    GIT_COMMIT_HASH = ""
+    VERSION = "0.0.2"
+    GIT_URL = "https://github.com/kbaseapps/FakeObjectsForTests"
+    GIT_COMMIT_HASH = "b71a1a07cc622d964997a6c63ef545aafcb85c8c"
 
     #BEGIN_CLASS_HEADER
     def ws(self, ctx):
@@ -120,10 +120,11 @@ class FakeObjectsForTests:
         """
         :param params: instance of type "CreateFakeGenomesParams"
            (ws_id/ws_name - two alternative ways to set target workspace,
-           obj_names - list of names for target workspace objects, metadata -
-           optional metadata.) -> structure: parameter "ws_id" of Long,
-           parameter "ws_name" of String, parameter "obj_names" of list of
-           String, parameter "metadata" of mapping from String to String
+           obj_names - list of names for target workspace objects (of type
+           'KBaseGenomes.Genome'), metadata - optional metadata.) ->
+           structure: parameter "ws_id" of Long, parameter "ws_name" of
+           String, parameter "obj_names" of list of String, parameter
+           "metadata" of mapping from String to String
         :returns: instance of list of type "object_info" (Information about
            an object, including user provided metadata. obj_id objid - the
            numerical id of the object. obj_name name - the name of the
@@ -199,10 +200,11 @@ class FakeObjectsForTests:
         """
         :param params: instance of type "CreateFakeReadsParams"
            (ws_id/ws_name - two alternative ways to set target workspace,
-           obj_names - list of names for target workspace objects, metadata -
-           optional metadata.) -> structure: parameter "ws_id" of Long,
-           parameter "ws_name" of String, parameter "obj_names" of list of
-           String, parameter "metadata" of mapping from String to String
+           obj_names - list of names for target workspace objects (of type
+           'KBaseFile.SingleEndLibrary'), metadata - optional metadata.) ->
+           structure: parameter "ws_id" of Long, parameter "ws_name" of
+           String, parameter "obj_names" of list of String, parameter
+           "metadata" of mapping from String to String
         :returns: instance of list of type "object_info" (Information about
            an object, including user provided metadata. obj_id objid - the
            numerical id of the object. obj_name name - the name of the

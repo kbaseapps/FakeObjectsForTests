@@ -644,7 +644,8 @@ metadata has a value which is a reference to a hash where the key is a string an
 =item Description
 
 ws_id/ws_name - two alternative ways to set target workspace,
-obj_names - list of names for target workspace objects,
+obj_names - list of names for target workspace objects (of type
+    'KBaseGenomes.Genome'),
 metadata - optional metadata.
 
 
@@ -687,7 +688,8 @@ metadata has a value which is a reference to a hash where the key is a string an
 =item Description
 
 ws_id/ws_name - two alternative ways to set target workspace,
-obj_names - list of names for target workspace objects,
+obj_names - list of names for target workspace objects (of type
+    'KBaseFile.SingleEndLibrary'),
 metadata - optional metadata.
 
 

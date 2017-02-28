@@ -16,7 +16,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * <p>Original spec-file type: CreateFakeGenomesParams</p>
  * <pre>
  * ws_id/ws_name - two alternative ways to set target workspace,
- * obj_names - list of names for target workspace objects,
+ * obj_names - list of names for target workspace objects (of type
+ *     'KBaseGenomes.Genome'),
  * metadata - optional metadata.
  * </pre>
  * 
