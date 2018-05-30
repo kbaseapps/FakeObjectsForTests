@@ -2,6 +2,8 @@
 #BEGIN_HEADER
 import os
 import time
+import json
+import copy
 from biokbase.workspace.client import Workspace as workspaceService
 from DataFileUtil.DataFileUtilClient import DataFileUtil
 #END_HEADER
@@ -36,6 +38,7 @@ class FakeObjectsForTests:
     def __init__(self, config):
         #BEGIN_CONSTRUCTOR
         self.wsURL = config['workspace-url']
+        self.scratch = config['scratch']
         #END_CONSTRUCTOR
         pass
 
@@ -175,11 +178,12 @@ class FakeObjectsForTests:
         #BEGIN create_fake_genomes
         metadata = params.get('metadata')
         objects = []
+        genome_data = json.load(open('/kb/module/data/genome.json'))
         for obj_name in params['obj_names']:
+            data = copy.copy(genome_data)
+            data['id'] = obj_name
             objects.append({'type': 'KBaseGenomes.Genome', 
-                            'data': {'id': obj_name, 'scientific_name': obj_name,
-                                     'domain': 'Bacteria', 'genetic_code': 11,
-                                     'features': []},
+                            'data': data,
                             'name': obj_name, 'meta': metadata})
         so_params = {'objects': objects}
         if 'ws_id' in params:
