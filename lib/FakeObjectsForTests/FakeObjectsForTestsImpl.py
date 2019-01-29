@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 #BEGIN_HEADER
+import copy
+import json
 import os
 import time
-import json
-import copy
-from biokbase.workspace.client import Workspace as workspaceService
-from DataFileUtil.DataFileUtilClient import DataFileUtil
+
+from installed_clients.DataFileUtilClient import DataFileUtil
+from installed_clients.WorkspaceClient import Workspace as workspaceService
 #END_HEADER
 
 
@@ -25,8 +26,8 @@ class FakeObjectsForTests:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.2"
-    GIT_URL = "https://github.com/kbaseapps/FakeObjectsForTests"
-    GIT_COMMIT_HASH = "b71a1a07cc622d964997a6c63ef545aafcb85c8c"
+    GIT_URL = "https://github.com/kbaseapps/FakeObjectsForTests.git"
+    GIT_COMMIT_HASH = "1868aa583b3ae078702f6153369625f41819a5d7"
 
     #BEGIN_CLASS_HEADER
     def ws(self, ctx):

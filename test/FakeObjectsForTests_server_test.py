@@ -1,22 +1,13 @@
 # -*- coding: utf-8 -*-
-import unittest
-import os  # noqa: F401
-import json  # noqa: F401
 import time
-import requests
-
+import unittest
+from configparser import ConfigParser
 from os import environ
-try:
-    from ConfigParser import ConfigParser  # py2
-except:
-    from configparser import ConfigParser  # py3
 
-from pprint import pprint  # noqa: F401
-
-from biokbase.workspace.client import Workspace as workspaceService
 from FakeObjectsForTests.FakeObjectsForTestsImpl import FakeObjectsForTests
 from FakeObjectsForTests.FakeObjectsForTestsServer import MethodContext
 from FakeObjectsForTests.authclient import KBaseAuth as _KBaseAuth
+from installed_clients.WorkspaceClient import Workspace as workspaceService
 
 
 class FakeObjectsForTestsTest(unittest.TestCase):
